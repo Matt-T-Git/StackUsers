@@ -31,6 +31,7 @@ object NetworkModule {
     /**
      * Provides OkHttpClient with:
      * - HTTP logging (body level) for debugging network traffic
+     * - API key interceptor to append our registered API key to every request
      * - 30 second connect/read/write timeouts
      */
     @Provides
@@ -40,8 +41,17 @@ object NetworkModule {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
+        val apiKeyInterceptor = Interceptor { chain ->
+            val original = chain.request()
+            val url = original.url.newBuilder()
+                .addQueryParameter("key", "rl_C1r2HphKLrWRhxSbAWGCYhwTi")
+                .build()
+            chain.proceed(original.newBuilder().url(url).build())
+        }
+
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(apiKeyInterceptor)
             .connectTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)

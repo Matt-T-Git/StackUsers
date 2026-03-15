@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">StackUsers</string>
+
+    <!-- Search screen -->
+    <string name="search_hint">Search by username…</string>
+    <string name="search_prompt">Search for StackOverflow users by name</string>
+
+    <!-- Detail screen -->
+    <string name="title_user_detail">User</string>
+    <string name="label_reputation">%1$s reputation</string>
+    <string name="label_member_since">Member since %1$s</string>
+    <string name="section_top_tags">Top Tags</string>
+    <string name="section_badges">Badges</string>
+    <string name="badge_gold">gold</string>
+    <string name="badge_silver">silver</string>
+    <string name="badge_bronze">bronze</string>
+
+    <!-- Errors -->
+    <string name="error_user_not_found">User not found</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+
+    <!-- Content descriptions (accessibility) -->
+    <string name="cd_search">Search</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_navigate_up">Navigate up</string>
+    <string name="cd_user_avatar">Avatar for %1$s</string>
+
 </resources>

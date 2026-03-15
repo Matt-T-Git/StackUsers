@@ -40,7 +40,7 @@ class BackoffInterceptor : Interceptor {
     private var backoffUntilMs: Long = 0L
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        // Honor any existing backoff window before sending
+        // Honour any existing backoff window before sending
         val remaining = backoffUntilMs - System.currentTimeMillis()
         if (remaining > 0) Thread.sleep(remaining)
 

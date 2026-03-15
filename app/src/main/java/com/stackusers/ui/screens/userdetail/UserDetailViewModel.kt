@@ -1,4 +1,4 @@
-package com.stackusers.ui.userdetail
+package com.stackusers.ui.screens.userdetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

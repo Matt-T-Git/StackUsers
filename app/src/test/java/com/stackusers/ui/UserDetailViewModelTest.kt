@@ -5,7 +5,7 @@ import com.stackusers.data.model.TopTag
 import com.stackusers.data.model.User
 import com.stackusers.data.model.UserDetail
 import com.stackusers.domain.usecase.GetUserDetailUseCase
-import com.stackusers.ui.userdetail.UserDetailViewModel
+import com.stackusers.ui.screens.userdetail.UserDetailViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher

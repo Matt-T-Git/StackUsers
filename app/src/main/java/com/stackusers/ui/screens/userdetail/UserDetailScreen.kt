@@ -51,7 +51,6 @@ import com.stackusers.data.model.UserDetail
 import com.stackusers.ui.UiState
 import com.stackusers.ui.components.ErrorState
 import com.stackusers.ui.components.LoadingIndicator
-import com.stackusers.ui.userdetail.UserDetailViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -7,12 +9,12 @@ plugins {
 
 android {
     namespace 'com.stackusers'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.stackusers"
         minSdk 21
-        targetSdk 35
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -59,7 +61,7 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+        jvmTarget = JvmTarget.JVM_17
     }
 }
 
@@ -67,49 +69,49 @@ dependencies {
     // Core
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.lifecycle.runtime.compose
     implementation libs.androidx.activity.compose
 
-    // Compose BOM
+    // Compose
     implementation platform(libs.androidx.compose.bom)
     implementation libs.androidx.compose.ui
     implementation libs.androidx.compose.ui.graphics
     implementation libs.androidx.compose.ui.tooling.preview
     implementation libs.androidx.compose.material3
-    implementation 'androidx.compose.material:material-icons-extended'
+    implementation libs.androidx.compose.material.icons.extended
 
-    // Jetpack Navigation
-    implementation 'androidx.navigation:navigation-compose:2.8.5'
+    // Navigation - 2.8.5 for API 21 support
+    implementation libs.androidx.navigation.compose
+    implementation libs.androidx.hilt.navigation.compose
 
-    // Jetpack ViewModel
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7'
-    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.8.7'
+    // ViewModel
+    implementation libs.androidx.lifecycle.viewmodel.compose
 
     // Hilt
     implementation libs.hilt.android
-    implementation 'androidx.hilt:hilt-navigation-compose:1.2.0'
     kapt libs.hilt.compiler
 
-    // Retrofit + OkHttp
-    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+    // Network
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.okhttp
+    implementation libs.okhttp.logging.interceptor
 
-    // Coil
-    implementation 'io.coil-kt:coil-compose:2.7.0'
+    // Image Loading
+    implementation libs.coil.compose
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
+    implementation libs.kotlinx.coroutines.android
 
     // Unit Testing
     testImplementation libs.junit
-    testImplementation 'org.mockito:mockito-core:5.14.2'
-    testImplementation 'org.mockito.kotlin:mockito-kotlin:5.4.0'
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0'
-    testImplementation 'androidx.arch.core:core-testing:2.2.0'
-    testImplementation 'app.cash.turbine:turbine:1.2.0'
-    testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
-    testImplementation 'org.assertj:assertj-core:3.25.1'
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.kotlin
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.androidx.arch.core.testing
+    testImplementation libs.turbine
+    testImplementation libs.okhttp.mockwebserver
+    testImplementation libs.assertj.core
 
     // Android Testing
     androidTestImplementation libs.androidx.junit

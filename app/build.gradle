@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace 'com.stackusers'
+    namespace = 'com.stackusers'
     compileSdk 36
 
     defaultConfig {
@@ -20,7 +20,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSupportLibrary true
+            useSupportLibrary = true
         }
     }
 
@@ -37,7 +37,7 @@ android {
     }
 
     buildFeatures {
-        compose true
+        compose = true
     }
 
     packaging {
@@ -47,8 +47,8 @@ android {
     }
 
     lint {
-        abortOnError false
-        baseline file("lint-baseline.xml")
+        abortOnError = false
+        baseline = file("lint-baseline.xml")
     }
 
     testOptions {
@@ -123,5 +123,5 @@ dependencies {
 }
 
 kapt {
-    correctErrorTypes true
+    correctErrorTypes = true
 }

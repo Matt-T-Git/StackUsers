@@ -17,7 +17,6 @@
 
     <!-- Errors -->
     <string name="error_user_not_found">User not found</string>
-    <string name="error_generic">Something went wrong. Please try again.</string>
 
     <!-- Content descriptions (accessibility) -->
     <string name="cd_search">Search</string>

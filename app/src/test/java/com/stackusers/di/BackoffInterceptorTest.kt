@@ -1,4 +1,4 @@
-package com.stackusers.data.di
+package com.stackusers.di
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType

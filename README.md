@@ -42,15 +42,13 @@ app/build/outputs/apk/debug/app-debug.apk
 
 | Tool | Version |
 |---|---|
-| Gradle | 8.9 (pinned via wrapper) |
-| Android Gradle Plugin | 8.7.3 |
-| Kotlin | 1.9.24 |
-| compileSdk | 35 |
+| Gradle | 9.40 |
+| Android Gradle Plugin | 9.1.0 |
+| Kotlin | 2.2.10 |
+| compileSdk | 36 |
 | minSdk | 21 (Android 5.0+) |
-| targetSdk | 35 |
+| targetSdk | 36 |
 | Java | 17 |
-
-> **Note on Kotlin version:** Kotlin 1.9.24 is used deliberately rather than 2.0+. Hilt relies on kapt for annotation processing, and kapt does not support Kotlin 2.0. The migration path from kapt to KSP is underway in the Hilt roadmap.
 
 ---
 

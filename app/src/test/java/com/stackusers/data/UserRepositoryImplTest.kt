@@ -32,7 +32,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `searchUsers maps UserDto list to User domain models correctly`() = runTest {
+    fun searchUsersMapsUserDtoListToUserDomainModelsCorrectly() = runTest {
         val dtos = listOf(
             buildUserDto(id = 1L, name = "Alice", reputation = 1500),
             buildUserDto(id = 2L, name = "Bob", reputation = 300)
@@ -53,7 +53,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `searchUsers maps badge counts correctly`() = runTest {
+    fun searchUsersMapsBadgeCountsCorrectly() = runTest {
         val dto = buildUserDto(
             id = 1L,
             badgeCounts = BadgeCountsDto(gold = 5, silver = 10, bronze = 20)
@@ -71,7 +71,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `searchUsers returns empty list when API returns empty items`() = runTest {
+    fun searchUsersReturnsEmptyListWhenApiReturnsEmptyItems() = runTest {
         whenever(apiService.searchUsers(inname = "nobody")).thenReturn(
             StackExchangeResponse(items = emptyList())
         )
@@ -83,7 +83,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `searchUsers wraps API exception in Result failure`() = runTest {
+    fun searchUsersWrapsApiExceptionInResultFailure() = runTest {
         whenever(apiService.searchUsers(inname = "fail")).thenThrow(
             RuntimeException("Timeout")
         )
@@ -95,7 +95,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `getUserDetail returns failure when user not found in response`() = runTest {
+    fun getUserDetailReturnsFailureWhenUserNotFoundInResponse() = runTest {
         whenever(apiService.getUserById(999L)).thenReturn(
             StackExchangeResponse(items = emptyList())
         )
@@ -107,7 +107,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `getUserDetail maps top tags correctly`() = runTest {
+    fun getUserDetailMapsTopTagsCorrectly() = runTest {
         val userDto = buildUserDto(id = 1L)
         val topTagDtos = listOf(
             TopTagDto("kotlin", answerCount = 10, questionCount = 5, answerScore = 100, questionScore = 50),
@@ -131,7 +131,7 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `getUserDetail handles null badgeCounts by defaulting to zero`() = runTest {
+    fun getUserDetailHandlesNullBadgeCountsByDefaultingToZero() = runTest {
         val dto = buildUserDto(id = 1L, badgeCounts = null)
         whenever(apiService.getUserById(1L)).thenReturn(
             StackExchangeResponse(items = listOf(dto))

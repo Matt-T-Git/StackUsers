@@ -1,8 +1,12 @@
 package com.stackusers.data.model
 
 data class User(
-    val userId: Int,
+    val userId: Long,
     val displayName: String,
     val reputation: Int,
-    val profileImage: String?
+    val profileImageUrl: String?,
+    val location: String?,
+    val creationDate: Long,
+    val badgeCounts: BadgeCounts,
+    val profileLink: String?
 )

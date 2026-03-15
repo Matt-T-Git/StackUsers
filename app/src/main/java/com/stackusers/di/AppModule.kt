@@ -62,9 +62,9 @@ class BackoffInterceptor : Interceptor {
         }
 
         // Parse backoff field from body for future requests
-        val source = response.body?.source()
-        source?.request(Long.MAX_VALUE)
-        val bodyString = source?.buffer?.clone()?.readUtf8() ?: ""
+        val source = response.body.source()
+        source.request(Long.MAX_VALUE)
+        val bodyString = source.buffer.clone().readUtf8()
 
         val backoffSeconds = Regex(""""backoff"\s*:\s*(\d+)""")
             .find(bodyString)?.groupValues?.get(1)?.toLongOrNull()

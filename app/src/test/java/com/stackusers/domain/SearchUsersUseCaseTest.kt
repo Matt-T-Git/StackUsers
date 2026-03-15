@@ -33,21 +33,21 @@ class SearchUsersUseCaseTest {
     }
 
     @Test
-    fun `invoke with blank query returns failure without calling repository`() = runTest {
+    fun invokeWithBlankQueryReturnsFailureWithoutCallingRepository() = runTest {
         val result = useCase("   ")
         assertTrue(result.isFailure)
         assertTrue(result.exceptionOrNull() is IllegalArgumentException)
     }
 
     @Test
-    fun `invoke with empty query returns failure without calling repository`() = runTest {
+    fun invokeWithEmptyQueryReturnsFailureWithoutCallingRepository() = runTest {
         val result = useCase("")
         assertTrue(result.isFailure)
         assertTrue(result.exceptionOrNull() is IllegalArgumentException)
     }
 
     @Test
-    fun `invoke with valid query returns alphabetically sorted results`() = runTest {
+    fun invokeWithValidQueryReturnsAlphabeticallySortedResults() = runTest {
         val unsortedUsers = listOf(
             buildUser(1L, "Zara"),
             buildUser(2L, "Alice"),
@@ -64,7 +64,7 @@ class SearchUsersUseCaseTest {
     }
 
     @Test
-    fun `invoke trims whitespace from query before searching`() = runTest {
+    fun invokeTrimsWhitespaceFromQueryBeforeSearching() = runTest {
         whenever(repository.searchUsers("alice")).thenReturn(Result.success(emptyList()))
 
         val result = useCase("  alice  ")
@@ -73,7 +73,7 @@ class SearchUsersUseCaseTest {
     }
 
     @Test
-    fun `invoke returns empty list when repository returns empty list`() = runTest {
+    fun invokeReturnsEmptyListWhenRepositoryReturnsEmptyList() = runTest {
         whenever(repository.searchUsers("nobody")).thenReturn(Result.success(emptyList()))
 
         val result = useCase("nobody")
@@ -83,7 +83,7 @@ class SearchUsersUseCaseTest {
     }
 
     @Test
-    fun `invoke propagates repository failure`() = runTest {
+    fun invokePropagatesRepositoryFailure() = runTest {
         val exception = RuntimeException("Network error")
         whenever(repository.searchUsers("test")).thenReturn(Result.failure(exception))
 
@@ -94,7 +94,7 @@ class SearchUsersUseCaseTest {
     }
 
     @Test
-    fun `invoke with single result returns list with one user`() = runTest {
+    fun invokeWithSingleResultReturnsListWithOneUser() = runTest {
         val user = buildUser(1L, "Alice")
         whenever(repository.searchUsers("alice")).thenReturn(Result.success(listOf(user)))
 

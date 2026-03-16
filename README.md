@@ -116,14 +116,14 @@ The project follows **Clean Architecture** with three distinct layers, enforcing
 | Concern | Library | Rationale |
 |---|---|---|
 | UI | Jetpack Compose + Material3 | Modern declarative UI, min API 21 compatible |
-| Navigation | Navigation Compose 2.8.5 | Type-safe nav graph, single Activity |
-| DI | Hilt 2.52 | Explicitly in spec; reduces DI boilerplate vs manual Dagger |
-| Networking | Retrofit 2.11 + OkHttp 4.12 | Industry standard; in spec |
+| Navigation | Navigation Compose | Type-safe nav graph, single Activity |
+| DI | Hilt | Explicitly in spec; reduces DI boilerplate vs manual Dagger |
+| Networking | Retrofit + OkHttp | Industry standard; in spec |
 | Serialisation | Gson | In spec |
-| Image loading | Coil 2.7 | Kotlin/coroutine-native; lighter than Glide for this use case |
-| Async | Coroutines 1.9 + StateFlow | In spec; idiomatic Kotlin |
-| Unit testing | JUnit4 + Mockito-Kotlin 5.4 | In spec |
-| Flow testing | Turbine 1.2 | Industry standard for testing StateFlow/SharedFlow |
+| Image loading | Coil | Kotlin/coroutine-native; lighter than Glide for this use case |
+| Async | Coroutines + StateFlow | In spec; idiomatic Kotlin |
+| Unit testing | JUnit4 + Mockito-Kotlin | In spec |
+| Flow testing | Turbine | Industry standard for testing StateFlow/SharedFlow |
 
 ---
 
